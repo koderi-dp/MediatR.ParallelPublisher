@@ -7,7 +7,7 @@ public class ParallelNotificationPublisher : INotificationPublisher
 {
     private readonly INotificationQueueWriter _queueWriter;
     private readonly IEnumerable<INotificationExceptionHandler> _exceptionHandlers;
-    private static readonly ConcurrentDictionary<Type, FireAndForgetNotificationAttribute?> FireAndForgetNotificationTypes = new ConcurrentDictionary<Type, FireAndForgetNotificationAttribute?>();
+    private static readonly ConcurrentDictionary<Type, FireAndForgetNotificationAttribute?> NotificationTypesCache = new ConcurrentDictionary<Type, FireAndForgetNotificationAttribute?>();
     
     public ParallelNotificationPublisher(INotificationQueueWriter queueWriter, IEnumerable<INotificationExceptionHandler> exceptionHandlers)
     {
@@ -42,6 +42,6 @@ public class ParallelNotificationPublisher : INotificationPublisher
     
     private static bool IsFireAndForgetNotification(INotification notification)
     {
-        return notification is IFireAndForgetNotification || FireAndForgetNotificationTypes.GetOrAdd(notification.GetType(), type => type.GetCustomAttribute<FireAndForgetNotificationAttribute>()) != null;
+        return notification is IFireAndForgetNotification || NotificationTypesCache.GetOrAdd(notification.GetType(), type => type.GetCustomAttribute<FireAndForgetNotificationAttribute>()) != null;
     }
 }
