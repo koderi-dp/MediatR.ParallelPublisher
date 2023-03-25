@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatR.ParallelNotificationPublisher", "src\MediatR.ParallelNotificationPublisher\MediatR.ParallelNotificationPublisher.csproj", "{4739BB12-D066-433D-8BE4-5CCBF83F39BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleExample", "samples\ConsoleExample\ConsoleExample.csproj", "{BA47DAE7-D59B-4D3D-8CD1-B5277666E09B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{9C6CB19C-0EE7-44E1-B953-D6B86D0FAFB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiExample", "samples\WebApiExample\WebApiExample.csproj", "{DEAD68AE-DC94-4BAE-BB76-7120B84F1BDF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4739BB12-D066-433D-8BE4-5CCBF83F39BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4739BB12-D066-433D-8BE4-5CCBF83F39BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4739BB12-D066-433D-8BE4-5CCBF83F39BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4739BB12-D066-433D-8BE4-5CCBF83F39BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA47DAE7-D59B-4D3D-8CD1-B5277666E09B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA47DAE7-D59B-4D3D-8CD1-B5277666E09B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA47DAE7-D59B-4D3D-8CD1-B5277666E09B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA47DAE7-D59B-4D3D-8CD1-B5277666E09B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEAD68AE-DC94-4BAE-BB76-7120B84F1BDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEAD68AE-DC94-4BAE-BB76-7120B84F1BDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEAD68AE-DC94-4BAE-BB76-7120B84F1BDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEAD68AE-DC94-4BAE-BB76-7120B84F1BDF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BA47DAE7-D59B-4D3D-8CD1-B5277666E09B} = {9C6CB19C-0EE7-44E1-B953-D6B86D0FAFB1}
+		{DEAD68AE-DC94-4BAE-BB76-7120B84F1BDF} = {9C6CB19C-0EE7-44E1-B953-D6B86D0FAFB1}
+	EndGlobalSection
+EndGlobal
