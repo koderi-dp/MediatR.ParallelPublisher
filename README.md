@@ -1,6 +1,6 @@
 MediatR.ParallelPublisher
 =======
-
+[![CI](https://github.com/koderi-dp/MediatR.ParallelPublisher/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/koderi-dp/MediatR.ParallelPublisher/actions/workflows/ci.yml)
 [![NuGet](https://img.shields.io/nuget/v/MediatR.ParallelPublisher?style=flat-square)](https://www.nuget.org/packages/MediatR.ParallelPublisher) 
 
 MediatR.ParallelPublisher is an extension for [MediatR](https://github.com/jbogard/MediatR) that enables parallel and fire-and-forget publishing of notifications. The library aims to improve performance and responsiveness by executing notification handlers concurrently, while also providing exception handling mechanisms for notification processing.
