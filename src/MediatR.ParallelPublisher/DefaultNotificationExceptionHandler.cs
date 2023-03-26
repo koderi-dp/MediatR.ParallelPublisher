@@ -1,8 +1,8 @@
 using Microsoft.Extensions.Logging;
 
-namespace MediatR.ParallelNotificationPublisher;
+namespace MediatR.ParallelPublisher;
 
-public class DefaultNotificationExceptionHandler : INotificationExceptionHandler
+internal sealed class DefaultNotificationExceptionHandler : INotificationExceptionHandler
 {
     private readonly ILogger<DefaultNotificationExceptionHandler> _logger;
     

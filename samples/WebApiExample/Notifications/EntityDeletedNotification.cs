@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 using MediatR;
-using MediatR.ParallelNotificationPublisher;
+using MediatR.ParallelPublisher;
 
 namespace WebApiExample.Notifications;
 

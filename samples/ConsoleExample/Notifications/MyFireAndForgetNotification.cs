@@ -1,4 +1,4 @@
-﻿using MediatR.ParallelNotificationPublisher;
+﻿using MediatR.ParallelPublisher;
 using Microsoft.Extensions.Logging;
 
 namespace ConsoleExample.Notifications;

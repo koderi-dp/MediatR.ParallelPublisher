@@ -1,8 +1,8 @@
 ﻿using System.Threading.Channels;
 
-namespace MediatR.ParallelNotificationPublisher;
+namespace MediatR.ParallelPublisher;
 
-internal class NotificationQueue : INotificationQueueWriter, INotificationQueueReader
+internal sealed class NotificationQueue : INotificationQueueWriter, INotificationQueueReader
 {
     private readonly Channel<NotificationQueueEntry> _queue = Channel.CreateUnbounded<NotificationQueueEntry>(new UnboundedChannelOptions { SingleReader = true, SingleWriter = false });
 

@@ -1,9 +1,9 @@
 ﻿using System.Collections.Concurrent;
 using System.Reflection;
 
-namespace MediatR.ParallelNotificationPublisher;
+namespace MediatR.ParallelPublisher;
 
-public class ParallelNotificationPublisher : INotificationPublisher
+internal sealed class ParallelNotificationPublisher : INotificationPublisher
 {
     private readonly INotificationQueueWriter _queueWriter;
     private readonly IEnumerable<INotificationExceptionHandler> _exceptionHandlers;

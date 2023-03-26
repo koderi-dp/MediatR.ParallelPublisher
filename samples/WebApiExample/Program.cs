@@ -1,4 +1,4 @@
-using MediatR.ParallelNotificationPublisher;
+using MediatR.ParallelPublisher;
 using Microsoft.EntityFrameworkCore;
 using WebApiExample.Database;
 using WebApiExample.Notifications;
@@ -15,7 +15,7 @@ builder.Services.AddTransient<IMoviesService, MoviesService>();
 builder.Services.AddMediatR(configuration =>
 {
     configuration.RegisterServicesFromAssemblyContaining<EntityAddedNotification>();
-    configuration.AddParallelNotificationPublisher(builder.Services, options => options.RegisterExceptionHandler<MyNotificationExceptionHandler>());
+    configuration.UseParallelNotificationPublisher(builder.Services, options => options.RegisterExceptionHandler<MyNotificationExceptionHandler>());
 });
 
 var app = builder.Build();

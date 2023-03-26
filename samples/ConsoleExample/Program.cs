@@ -1,12 +1,12 @@
 ﻿using System.Diagnostics;
 using ConsoleExample.Notifications;
 using MediatR;
-using MediatR.ParallelNotificationPublisher;
+using MediatR.ParallelPublisher;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-CancellationTokenSource terminationTokenSource = new CancellationTokenSource();
+var terminationTokenSource = new CancellationTokenSource();
 
 Console.CancelKeyPress += (_, _) => terminationTokenSource.Cancel();
 
@@ -20,7 +20,7 @@ using var host = new HostBuilder()
         services.AddMediatR(cfg =>
         {
             cfg.RegisterServicesFromAssemblyContaining<MyNormalNotification>();
-            cfg.AddParallelNotificationPublisher(services);
+            cfg.UseParallelNotificationPublisher(services);
         });
     })
     .Build();
@@ -31,8 +31,6 @@ await host.StartAsync(terminationTokenSource.Token);
 var mediator = host.Services.GetRequiredService<IMediator>();
 var logger = host.Services.GetRequiredService<ILogger<Program>>();
 var applicationLifetime = host.Services.GetRequiredService<IHostApplicationLifetime>();
-
-logger.LogInformation("Publishing normal notifications");
 
 async Task PublishNotificationAsync<TNotification>(ILogger log, IPublisher publisher, CancellationToken cancellationToken) where TNotification : IMessageNotification, new()
 {
@@ -53,7 +51,6 @@ async Task PublishNotificationAsync<TNotification>(ILogger log, IPublisher publi
 }
 
 await PublishNotificationAsync<MyNormalNotification>(logger, mediator, terminationTokenSource.Token);
-
 await PublishNotificationAsync<MyFireAndForgetNotification>(logger, mediator, terminationTokenSource.Token);
 
 Console.ReadLine();

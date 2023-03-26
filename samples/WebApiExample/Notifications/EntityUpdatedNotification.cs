@@ -1,4 +1,4 @@
-﻿using MediatR.ParallelNotificationPublisher;
+﻿using MediatR.ParallelPublisher;
 
 namespace WebApiExample.Notifications;
 

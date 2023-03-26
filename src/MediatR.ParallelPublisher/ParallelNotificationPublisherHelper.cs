@@ -1,10 +1,10 @@
 ﻿using System.Collections.Concurrent;
 
-namespace MediatR.ParallelNotificationPublisher;
+namespace MediatR.ParallelPublisher;
 
-public class ParallelNotificationPublisherHelper
+internal static class ParallelNotificationPublisherHelper
 {
-    public static async Task<NotificationException[]> PublishAsync(NotificationHandlerExecutor[] handlers, INotification notification, CancellationToken cancellationToken)
+    internal static async Task<NotificationException[]> PublishAsync(NotificationHandlerExecutor[] handlers, INotification notification, CancellationToken cancellationToken)
     {
         int handlersCount = handlers.Length;
 
@@ -28,7 +28,7 @@ public class ParallelNotificationPublisherHelper
             }
         }
 
-        var exceptions = new ConcurrentQueue<NotificationException>();
+        var lazyExceptions = new Lazy<ConcurrentQueue<NotificationException>>();
         
         await Parallel.ForEachAsync(handlers, new ParallelOptions { CancellationToken = cancellationToken }, async (executor, token) =>
         {
@@ -38,10 +38,10 @@ public class ParallelNotificationPublisherHelper
             }
             catch (Exception e)
             {
-                exceptions.Enqueue(new NotificationException(executor.HandlerInstance.GetType(), e));
+                lazyExceptions.Value.Enqueue(new NotificationException(executor.HandlerInstance.GetType(), e));
             }
         });
 
-        return exceptions.IsEmpty ? Array.Empty<NotificationException>() : exceptions.ToArray();
+        return lazyExceptions.IsValueCreated ? lazyExceptions.Value.ToArray() : Array.Empty<NotificationException>();
     }
 }

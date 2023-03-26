@@ -1,4 +1,4 @@
-﻿namespace MediatR.ParallelNotificationPublisher;
+﻿namespace MediatR.ParallelPublisher;
 
 public interface IFireAndForgetNotification : INotification
 {

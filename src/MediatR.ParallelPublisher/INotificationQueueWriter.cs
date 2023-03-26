@@ -1,6 +1,6 @@
-﻿namespace MediatR.ParallelNotificationPublisher;
+﻿namespace MediatR.ParallelPublisher;
 
-public interface INotificationQueueWriter
+internal interface INotificationQueueWriter
 {
     ValueTask WriteAsync(NotificationHandlerExecutor[] handlers, INotification notification, CancellationToken cancellationToken);
 }

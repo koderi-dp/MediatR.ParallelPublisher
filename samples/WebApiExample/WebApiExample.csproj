@@ -19,13 +19,13 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\MediatR.ParallelNotificationPublisher\MediatR.ParallelNotificationPublisher.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
       <None Update="MovieDatabase.db">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\MediatR.ParallelPublisher\MediatR.ParallelPublisher.csproj" />
     </ItemGroup>
 
 </Project>

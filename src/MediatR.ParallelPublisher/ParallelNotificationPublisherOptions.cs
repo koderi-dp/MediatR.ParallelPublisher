@@ -1,11 +1,11 @@
-﻿namespace MediatR.ParallelNotificationPublisher;
+﻿namespace MediatR.ParallelPublisher;
 
 public interface IParallelNotificationPublisherOptions
 {
     void RegisterExceptionHandler<THandler>() where THandler : INotificationExceptionHandler;
 }
 
-public class ParallelNotificationPublisherOptions : IParallelNotificationPublisherOptions
+internal sealed class ParallelNotificationPublisherOptions : IParallelNotificationPublisherOptions
 {
     private readonly List<Type> _exceptionHandlerTypes = new List<Type>();
     

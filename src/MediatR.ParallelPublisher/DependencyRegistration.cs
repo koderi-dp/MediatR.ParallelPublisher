@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace MediatR.ParallelNotificationPublisher;
+namespace MediatR.ParallelPublisher;
 
 public static class DependencyRegistration
 {
-    public static void AddParallelNotificationPublisher(this MediatRServiceConfiguration configuration, IServiceCollection services, Action<IParallelNotificationPublisherOptions>? configure = null)
+    public static void UseParallelNotificationPublisher(this MediatRServiceConfiguration configuration, IServiceCollection services, Action<IParallelNotificationPublisherOptions>? configure = null)
     {
         var options = new ParallelNotificationPublisherOptions();
         configure?.Invoke(options);

@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace MediatR.ParallelNotificationPublisher;
+namespace MediatR.ParallelPublisher;
 
-public class NotificationQueueService : BackgroundService
+internal sealed class NotificationQueueService : BackgroundService
 {
     private readonly ILogger<NotificationQueueService> _logger;
     private readonly INotificationQueueReader _queueReader;
@@ -36,9 +36,9 @@ public class NotificationQueueService : BackgroundService
 
     private async ValueTask ProcessExceptionsAsync(IEnumerable<NotificationException> notificationExceptions, INotification notification)
     {
-        foreach (var notificationException in notificationExceptions)
+        foreach (NotificationException notificationException in notificationExceptions)
         {
-            foreach (var exceptionHandler in _exceptionHandlers)
+            foreach (INotificationExceptionHandler exceptionHandler in _exceptionHandlers)
             {
                 try
                 {

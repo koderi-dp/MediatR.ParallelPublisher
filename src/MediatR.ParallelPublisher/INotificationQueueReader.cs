@@ -1,6 +1,6 @@
-﻿namespace MediatR.ParallelNotificationPublisher;
+﻿namespace MediatR.ParallelPublisher;
 
-public interface INotificationQueueReader
+internal interface INotificationQueueReader
 {
     IAsyncEnumerable<NotificationQueueEntry> ReadAllAsync(CancellationToken cancellationToken);
 }
