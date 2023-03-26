@@ -14,11 +14,27 @@
         <LangVersion>10.0</LangVersion>
         <SignAssembly>true</SignAssembly>
         <AssemblyOriginatorKeyFile>..\..\MediatR.ParallelPublisher.snk</AssemblyOriginatorKeyFile>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Title>MediatR.ParallelPublisher</Title>
+        <PackageIcon>icon.jpg</PackageIcon>
+        <Version>1.0.1</Version>
     </PropertyGroup>
 
     <ItemGroup>
       <PackageReference Include="MediatR" Version="12.0.1" />
       <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="7.0.0" />
       <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\..\icon.jpg" Pack="true" PackagePath="" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="..\..\LICENSE" Pack="true" PackagePath="" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="..\..\README.md" Pack="true" PackagePath="" />
     </ItemGroup>
 </Project>

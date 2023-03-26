@@ -74,7 +74,7 @@ public class MyCustomExceptionHandler : INotificationExceptionHandler
 
 ## License
 
-MediatR.ParallelPublisher is released under the Apache License. See the LICENSE file for details.
+MediatR.ParallelPublisher is released under the Apache License. See the [LICENSE](https://github.com/koderi-dp/MediatR.ParallelPublisher/blob/main/LICENSE) file for details.
 
 ## Contributing
 Contributions are welcome! Feel free to submit issues, feature requests, or pull requests.
